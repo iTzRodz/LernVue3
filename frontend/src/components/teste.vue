@@ -5,16 +5,26 @@
   </div>
 </template>
 <script>
+
 export default {
     data() {
       return {
-        count: 0
+        count: 0,
+        interval: ''
       }
+    },
+    mounted() {
+      this.interval = setInterval(() => {
+        console.log(`mounted`);
+      }, 1000)
+    },
+    unmounted() {
+      clearInterval(this.interval)
     },
     methods: {
       increment() {
         this.count++
       }
     }
-  }
-  
+}
+</script>
